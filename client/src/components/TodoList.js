@@ -4,7 +4,7 @@ function TodoList() {
   const [todos, setTodos] = useState({});
   const [newTodo, setNewTodo] = useState({});
 
-  useEffect(() => {
+  const refetchData = () => {
     fetch('http://localhost:3001/todos/')
       .then((response) =>
         response.json()
@@ -13,7 +13,11 @@ function TodoList() {
         setTodos(data);
       })
       .catch((error) => console.error('Error fetching data:', error));
-  });
+  }
+
+  useEffect(() => {
+    refetchData();
+  },[]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,6 +39,20 @@ function TodoList() {
     }
   };
 
+  const handleDelete = (e, id) => {
+    e.preventDefault();
+    fetch(`http://localhost:3001/todos/${id}`,{
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }).then((response) => response.json())
+      .then((_data) => {
+        refetchData();
+      })
+      .catch((error) => console.error('Error deleting todo:', error));
+  }
+
   return (
     <>
       <h1>To-Do List:</h1>
@@ -44,7 +62,7 @@ function TodoList() {
             <ul>
               <li key={`${todo.id}-title`}><b>Title: </b>{todo.title}</li>
               <li key={`${todo.id}-description`}><b>Description: </b>{todo.description}</li>
-              <button onClick={() => console.log("Not Implemented")} class="delete-button">Delete</button>
+              <button onClick={(e) => handleDelete(e, todo.id)} class="delete-button">Delete</button>
             </ul>
           </li>
         ))}
