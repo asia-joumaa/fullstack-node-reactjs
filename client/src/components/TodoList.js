@@ -34,6 +34,7 @@ function TodoList() {
         .then((response) => response.json())
         .then((_data) => {
           setNewTodo({}); // Clear the input field
+          refetchData();
         })
         .catch((error) => console.error('Error adding todo:', error));
     }
