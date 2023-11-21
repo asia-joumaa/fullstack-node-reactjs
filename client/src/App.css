@@ -1,0 +1,98 @@
+/* Reset some default styles for better consistency */
+body,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the main container */
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Style the heading */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Style the todo list */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Style individual todo items */
+li.todo-item {
+  align-items: center;
+  margin-bottom: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  transition: background-color 0.2s;
+}
+
+/* Hover effect for todo items */
+li:hover {
+  background-color: #f9f9f9;
+}
+
+/* Style the todo item text */
+.todo-text {
+  flex-grow: 1;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Style the delete button */
+.delete-button {
+  display: block;
+  width: 20%;
+  padding: 5px;
+  margin-top: 10px;
+  background-color: #c03a3a;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #bd6161;
+}
+
+/* Style the input field for adding new todos */
+input[type="text"] {
+  width: 95%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+}
+
+/* Style the "Add" button */
+.add-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #5bc0de;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.add-button:hover {
+  background-color: #31b0d5;
+}
