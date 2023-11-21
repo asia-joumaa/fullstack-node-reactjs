@@ -7,6 +7,10 @@ router.get('/', (_req, res) => {
   res.json(data.getAllTodos());
 });
 
+router.post('/', (req, res) => {
+  res.json(data.addNewTodo(req.body.title, req.body.description));
+});
+
 router.delete('/:id', (req, res) => {
   res.json(data.deleteTodoById(req.params.id))
 });

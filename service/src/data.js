@@ -30,6 +30,21 @@ const data = {
     } catch (error) {
       console.error('Error saving JSON data:', error);
     }
+  },
+
+  addNewTodo: (title, description) => {
+    const todosKeys = Object.keys(todos);
+    const lastKey = todosKeys[todosKeys.length - 1];
+    const lastTodo = todos[lastKey];
+    const lastTodoId = Number(lastTodo['id']);
+
+    todos[lastTodoId+1] = {
+      id: lastTodoId+1,
+      title,
+      description
+    }
+    data.save();
+    return lastTodoId+1;
   }
 }
 
